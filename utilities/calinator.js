@@ -21,6 +21,8 @@ calculate = () => {
     const servingsToMeetMealTarget = gramsToMeetMealTarget / servingSize;
     const caloriesPer40Grams = caloriesPerGram * 40;
     const caloriesPer200Grams = caloriesPerGram * 200;
+    const gramsPer200Calories = 200 / caloriesPerGram;
+    const ouncesPer200Calories = gramsToOunces(gramsPer200Calories);
 
     // Verify that caloriesPerGram is not NaN or Infinity before setting text
     if (isNaN(caloriesPerGram) || !isFinite(caloriesPerGram)) {
@@ -36,6 +38,7 @@ calculate = () => {
     setElementTextById('percentOfMealTarget', percentageOfMealTargetText);
     setElementTextById('caloriesPer40Grams', `Calories per 40 Grams: ${caloriesPer40Grams.toFixed(2)} Calories (${caloriesToJouleText(caloriesPer40Grams)})`);
     setElementTextById('caloriesPer200Grams', `Calories per 200 Grams: ${caloriesPer200Grams.toFixed(2)} Calories (${caloriesToJouleText(caloriesPer200Grams)})`);
+    setElementTextById('gramsPer200Calories', `Grams per 200 Calories (snack size): ${gramsPer200Calories.toFixed(2)} g (${ouncesPer200Calories.toFixed(2)} oz)`);
 }
 
 caloriesToJouleText = (calories) => {
@@ -53,6 +56,10 @@ caloriesToJouleText = (calories) => {
 
 gramsToPounds = (grams) => {
     return grams / 453.59237;
+}
+
+gramsToOunces = (grams) => {
+    return grams / 28.34952;
 }
 
 setElementTextById = (id, text) => {
