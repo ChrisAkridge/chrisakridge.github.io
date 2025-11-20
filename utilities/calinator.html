@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calinator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">The Calinator</a>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <hr>
+        <h2 class="text-center">Calorie Calculator</h2>
+        <p class="text-center">Calculate how good a given food is given its Calories and grams per serving, your Calorie target, and typical serving sizes.</p>
+    </div>
+
+    <div class="container my-4">
+        <div class="mb-3">
+            <label for="calories" class="form-label">Calories per Serving</label>
+            <input type="number" class="form-control form-control-lg" id="calories" placeholder="Enter Calories per serving" onchange="calculate()">
+        </div>
+    </div>
+
+    <div class="container my-4">
+        <div class="mb-3">
+            <label for="servingSize" class="form-label">Serving Size (grams, if milliliters, 1 mL &approx; 1 g)</label>
+            <input type="number" class="form-control form-control-lg" id="servingSize" placeholder="Enter Serving Size" onchange="calculate()">
+        </div>
+    </div>
+
+    <div class="container my-4">
+        <div class="mb-3">
+            <label for="calorieTarget" class="form-label">Daily Calorie Target</label>
+            <input type="number" class="form-control form-control-lg" id="calorieTarget" placeholder="Enter Target" onchange="calculate()">
+        </div>
+
+        <small class="text-muted">
+            Note: This will also set a Meal Calorie Target, which is 1/3rd of the Daily Calorie Target.
+        </small>
+    </div>
+
+    <div class="container my-4">
+        <h2>Results</h2>
+
+        <ul class="fs-4">
+            <li id="caloriesPerGram">Calories per Gram: 0 Calories (0 J)</li>
+            <li id="percentOfDailyTarget">Percent of Daily Calorie Target: 0.00%, you can eat &infin; grams</li>
+            <li id="percentOfMealTarget" class="fs-5" style="margin-left: 20px;">Percent of Meal Calorie Target: 0.00%, you can eat &infin; grams</li>
+            <li id="caloriesPer40Grams">Calories per 40 Grams (snack size): 0 Calories (0 J)</li>
+            <li id="caloriesPer200Grams">Calories per 200 Grams (meal size): 0 Calories (0 J)</li>
+        </ul>
+    </div>
+
+    <footer class="text-center py-3 bg-light">
+        <small>&copy; 2025 Chris Akridge</small>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="calinator.js"></script>
+</body>
+</html>
