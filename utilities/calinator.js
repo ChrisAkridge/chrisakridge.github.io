@@ -12,17 +12,24 @@ calculate = () => {
     const caloriesPerGram = calories / servingSize;
     const percentageOfTarget = (calories / calorieTarget) * 100;
     const gramsToMeetTarget = calorieTarget / caloriesPerGram;
+    const poundsToMeetTarget = gramsToPounds(gramsToMeetTarget);
     const mealTarget = calorieTarget / 3;
     const percentageOfMealTarget = (calories / mealTarget) * 100;
     const gramsToMeetMealTarget = mealTarget / caloriesPerGram;
+    const poundsToMeetMealTarget = gramsToPounds(gramsToMeetMealTarget);
     const caloriesPer40Grams = caloriesPerGram * 40;
     const caloriesPer200Grams = caloriesPerGram * 200;
 
+    // Verify that caloriesPerGram is not NaN or Infinity before setting text
+    if (isNaN(caloriesPerGram) || !isFinite(caloriesPerGram)) {
+        return;
+    }
+
     setElementTextById('caloriesPerGram', `Calories per Gram: ${caloriesPerGram.toFixed(2)} Calories (${caloriesToJouleText(caloriesPerGram)})`);
-    const percentageOfTargetText = `Percentage of Daily Target: ${percentageOfTarget.toFixed(2)}, you can eat ${gramsToMeetTarget.toFixed(2)}g`
+    const percentageOfTargetText = `Percentage of Daily Target: ${percentageOfTarget.toFixed(2)}%, you can eat ${gramsToMeetTarget.toFixed(2)}g (${poundsToMeetTarget.toFixed(2)} lbs)`
         .replace("Infinity", "\u221E");
     setElementTextById('percentOfDailyTarget', percentageOfTargetText);
-    const percentageOfMealTargetText = `Percentage of One-Third Daily Target: ${percentageOfMealTarget.toFixed(2)}%, you can eat ${gramsToMeetMealTarget.toFixed(2)}g`
+    const percentageOfMealTargetText = `Percentage of One-Third Daily Target: ${percentageOfMealTarget.toFixed(2)}%, you can eat ${gramsToMeetMealTarget.toFixed(2)}g (${poundsToMeetMealTarget.toFixed(2)} lbs)`
         .replace("Infinity", "\u221E");
     setElementTextById('percentOfMealTarget', percentageOfMealTargetText);
     setElementTextById('caloriesPer40Grams', `Calories per 40 Grams: ${caloriesPer40Grams.toFixed(2)} Calories (${caloriesToJouleText(caloriesPer40Grams)})`);
@@ -40,6 +47,10 @@ caloriesToJouleText = (calories) => {
     } else {
         return `${(joules / 1e9).toFixed(2)} GJ`;
     }
+}
+
+gramsToPounds = (grams) => {
+    return grams / 453.59237;
 }
 
 setElementTextById = (id, text) => {
