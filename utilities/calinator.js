@@ -13,10 +13,12 @@ calculate = () => {
     const percentageOfTarget = (calories / calorieTarget) * 100;
     const gramsToMeetTarget = calorieTarget / caloriesPerGram;
     const poundsToMeetTarget = gramsToPounds(gramsToMeetTarget);
+    const servingsToMeetTarget = gramsToMeetTarget / servingSize;
     const mealTarget = calorieTarget / 3;
     const percentageOfMealTarget = (calories / mealTarget) * 100;
     const gramsToMeetMealTarget = mealTarget / caloriesPerGram;
     const poundsToMeetMealTarget = gramsToPounds(gramsToMeetMealTarget);
+    const servingsToMeetMealTarget = gramsToMeetMealTarget / servingSize;
     const caloriesPer40Grams = caloriesPerGram * 40;
     const caloriesPer200Grams = caloriesPerGram * 200;
 
@@ -26,10 +28,10 @@ calculate = () => {
     }
 
     setElementTextById('caloriesPerGram', `Calories per Gram: ${caloriesPerGram.toFixed(2)} Calories (${caloriesToJouleText(caloriesPerGram)})`);
-    const percentageOfTargetText = `Percentage of Daily Target: ${percentageOfTarget.toFixed(2)}%, you can eat ${gramsToMeetTarget.toFixed(2)}g (${poundsToMeetTarget.toFixed(2)} lbs)`
+    const percentageOfTargetText = `Percentage of Daily Target: ${percentageOfTarget.toFixed(2)}%, you can eat ${gramsToMeetTarget.toFixed(2)}g (${poundsToMeetTarget.toFixed(2)} lbs, ${servingsToMeetTarget.toFixed(2)} servings)`
         .replace("Infinity", "\u221E");
     setElementTextById('percentOfDailyTarget', percentageOfTargetText);
-    const percentageOfMealTargetText = `Percentage of One-Third Daily Target: ${percentageOfMealTarget.toFixed(2)}%, you can eat ${gramsToMeetMealTarget.toFixed(2)}g (${poundsToMeetMealTarget.toFixed(2)} lbs)`
+    const percentageOfMealTargetText = `Percentage of One-Third Daily Target: ${percentageOfMealTarget.toFixed(2)}%, you can eat ${gramsToMeetMealTarget.toFixed(2)}g (${poundsToMeetMealTarget.toFixed(2)} lbs, ${servingsToMeetMealTarget.toFixed(2)} servings)`
         .replace("Infinity", "\u221E");
     setElementTextById('percentOfMealTarget', percentageOfMealTargetText);
     setElementTextById('caloriesPer40Grams', `Calories per 40 Grams: ${caloriesPer40Grams.toFixed(2)} Calories (${caloriesToJouleText(caloriesPer40Grams)})`);
