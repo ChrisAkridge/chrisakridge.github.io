@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Facts</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="nutrition_facts.css">
+</head>
+
+<body>
+    <div id="navigation-well">
+        <div id="back-to-nutrition-facts" class="nav-button">
+            &lt;&lt;
+        </div>
+        <div id="back-one-page" class="nav-button">
+            &lt;
+        </div>
+        <div id="forward-one-page" class="nav-button nav-button-active">
+            &gt;
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 panel-shown">
+                <div class="bg-primary-subtle">
+                    <h2>Enter Nutrition Facts</h2>
+                    <table class="table">
+                        <!-- Daily Energy Intake and Serving Info -->
+                        <tr class="grid-block-0">
+                            <td><label for="dailyEnergyIntake">Daily Energy Intake (Calories):</label></td>
+                            <td><input type="number" id="dailyEnergyIntake" name="dailyEnergyIntake"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="servingSize">Serving Size:</label></td>
+                            <td><input type="number" id="servingSize" name="servingSize"></td>
+                            <td>
+                                <input type="radio" id="servingSizeGrams" name="servingSizeUnit" value="grams" checked>
+                                <label for="servingSizeGrams">grams</label>
+                                <input type="radio" id="servingSizeMilliliters" name="servingSizeUnit"
+                                    value="milliliters">
+                                <label for="servingSizeMilliliters">milliliters</label>
+                            </td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="unitsPerServing">Units Per Serving:</label></td>
+                            <td><input type="checkbox" id="foodIsDiscrete" name="foodIsDiscrete">Food is discrete?</input></td>
+                            <td><input type="number" id="unitsPerServing" name="unitsPerServing"></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="servingsPerContainer">Servings Per Container:</label></td>
+                            <td><input type="number" id="servingsPerContainer" name="servingsPerContainer"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><span>Container Size:</span></td>
+                            <td><span class="calc" id="calc-containerSize">0 grams</span></td>
+                            <td></td>
+                        </tr>
+                        <!-- Calories -->
+                        <tr class="grid-block-1">
+                            <td><label for="caloriesPerServing">Calories:</label></td>
+                            <td><input type="number" id="caloriesPerServing" name="caloriesPerServing"></td>
+                            <td></td>
+                        </tr>
+                        <!-- Fat -->
+                        <tr class="grid-block-0">
+                            <td><label for="totalFat">Total Fat (grams):</label></td>
+                            <td><input type="number" id="totalFat" name="totalFat"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="saturatedFat">Saturated Fat (grams):</label></td>
+                            <td><input type="number" id="saturatedFat" name="saturatedFat"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="polyUnsaturatedFat">Polyunsaturated Fat (grams):</label></td>
+                            <td><input type="number" id="polyUnsaturatedFat" name="polyUnsaturatedFat"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="transFat">Trans Fat (grams):</label></td>
+                            <td><input type="number" id="transFat" name="transFat"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><span>Monounsaturated Fat (grams):</span></td>
+                            <td><span class="calc" id="calc-monounsaturatedFat">0 grams</span></td>
+                            <td></td>
+                        </tr>
+                        <!-- Cholesterol and Sodium -->
+                        <tr class="grid-block-1">
+                            <td><label for="cholesterol">Cholesterol (mg):</label></td>
+                            <td><input type="number" id="cholesterol" name="cholesterol"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-1">
+                            <td><label for="sodium">Sodium (mg):</label></td>
+                            <td><input type="number" id="sodium" name="sodium"></td>
+                            <td></td>
+                        </tr>
+                        <!-- Carbohydrates -->
+                        <tr class="grid-block-0">
+                            <td><label for="totalCarbohydrate">Total Carbohydrate (grams):</label></td>
+                            <td><input type="number" id="totalCarbohydrate" name="totalCarbohydrate"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="dietaryFiber">Dietary Fiber (grams):</label></td>
+                            <td><input type="number" id="dietaryFiber" name="dietaryFiber"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="totalSugars">Total Sugars (grams):</label></td>
+                            <td><input type="number" id="totalSugars" name="totalSugars"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="addedSugars">Added Sugars (grams):</label></td>
+                            <td><input type="number" id="addedSugars" name="addedSugars"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><span>Natural Sugars (grams):</span></td>
+                            <td><span class="calc" id="calc-naturalSugars">0 grams</span></td>
+                            <td></td>
+                        </tr>
+                        <!-- Protein -->
+                        <tr class="grid-block-1">
+                            <td><label for="protein">Protein (grams):</label></td>
+                            <td><input type="number" id="protein" name="protein"></td>
+                            <td></td>
+                        </tr>
+                        <!-- Vitamins and Minerals -->
+                        <tr class="grid-block-0">
+                            <td><label for="biotin">Biotin (micrograms):</td>
+                            <td><input id="biotin" type="number" name="biotin"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="choline">Choline (milligrams):</td>
+                            <td><input id="choline" type="number" name="choline"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="folate">Folate/Folic Acid (micrograms DFE):</td>
+                            <td><input id="folate" type="number" name="folate"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="nianic">Niacin (milligrams):</td>
+                            <td><input id="nianic" type="number" name="nianic"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="pantotheticAcid">Pantothenic Acid (milligrams):</td>
+                            <td><input id="pantotheticAcid" type="number" name="pantotheticAcid"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="riboflavin">Riboflavin (milligrams):</td>
+                            <td><input id="riboflavin" type="number" name="riboflavin"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="thiamin">Thiamin (milligrams):</td>
+                            <td><input id="thiamin" type="number" name="thiamin"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="vitaminA">Vitamin A (micrograms):</td>
+                            <td><input id="vitaminA" type="number" name="vitaminA"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="vitaminB6">Vitamin B<sub>6</sub> (milligrams):</td>
+                            <td><input id="vitaminB6" type="number" name="vitaminB6"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="vitaminB12">Vitamin B<sub>12</sub> (micrograms):</td>
+                            <td><input id="vitaminB12" type="number" name="vitaminB12"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="vitaminC">Vitamin C (milligrams):</td>
+                            <td><input id="vitaminC" type="number" name="vitaminC"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="vitaminD">Vitamin D (micrograms):</td>
+                            <td><input id="vitaminD" type="number" name="vitaminD"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="vitaminE">Vitamin E (milligrams):</td>
+                            <td><input id="vitaminE" type="number" name="vitaminE"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="vitaminK">Vitamin K (micrograms):</td>
+                            <td><input id="vitaminK" type="number" name="vitaminK"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="calcium">Calcium (grams):</td>
+                            <td><input id="calcium" type="number" name="calcium"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="chloride">Chloride (grams):</td>
+                            <td><input id="chloride" type="number" name="chloride"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="chromium">Chromium (micrograms):</td>
+                            <td><input id="chromium" type="number" name="chromium"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="copper">Copper (micrograms):</td>
+                            <td><input id="copper" type="number" name="copper"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="iodine">Iodine (micrograms):</td>
+                            <td><input id="iodine" type="number" name="iodine"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="iron">Iron (milligrams):</td>
+                            <td><input id="iron" type="number" name="iron"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="magnesium">Magnesium (milligrams):</td>
+                            <td><input id="magnesium" type="number" name="magnesium"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="manganese">Manganese (milligrams):</td>
+                            <td><input id="manganese" type="number" name="manganese"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="molybdenum">Molybdenum (micrograms):</td>
+                            <td><input id="molybdenum" type="number" name="molybdenum"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="potassium">Potassium (grams):</td>
+                            <td><input id="potassium" type="number" name="potassium"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="selenium">Selenium (micrograms):</td>
+                            <td><input id="selenium" type="number" name="selenium"></td>
+                            <td></td>
+                        </tr>
+                        <tr class="grid-block-0">
+                            <td><label for="zinc">Zinc (milligrams):</td>
+                            <td><input id="zinc" type="number" name="zinc"></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-12 panel-hidden">
+                <div class="bg-success-subtle">
+                    <h2>Servings and Units</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="nutrition_facts.js"></script>
+</body>
+
+</html>
