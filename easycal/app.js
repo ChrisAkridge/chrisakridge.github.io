@@ -148,7 +148,7 @@ async function renderAdd(byWeight = false) {
   const accountedDate = currentAccountedDate(settings);
   app.innerHTML = `${pageHeader(byWeight ? "Add by Weight" : "Add Calories")}
     <form id="entry-form" novalidate>
-      <div id="form-error"></div>
+      <div id="form-error" class="validation-summary"></div>
       ${byWeight ? `
         ${numberField({ id: "serving_size", label: "Serving Size (grams or mL)", autofocus: true })}
         ${numberField({ id: "calories_per_serving", label: "Calories per Serving" })}
@@ -160,7 +160,7 @@ async function renderAdd(byWeight = false) {
         <div class="field-error" id="accounted_date-error"></div></div>
       <div class="form-group"><label for="note">Notes <span class="optional">(optional)</span></label>
         <textarea id="note" name="note" rows="3"></textarea></div>
-      <button class="button button-primary button-block" type="submit">Add Entry</button>
+      <button class="button button-primary button-block entry-submit" type="submit">Add Entry</button>
     </form>`;
 
   const form = document.querySelector("#entry-form");
@@ -212,7 +212,7 @@ async function handleEntrySubmit(event, byWeight) {
     if (target) target.textContent = message;
   });
   if (Object.keys(errors).length) {
-    document.querySelector("#form-error").innerHTML = errorSummary("Please correct the highlighted fields.");
+    document.querySelector("#form-error").innerHTML = errorSummary(Object.values(errors).join(" "));
     form.querySelector(`[name="${Object.keys(errors)[0]}"]`)?.focus();
     return;
   }
