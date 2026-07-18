@@ -153,7 +153,8 @@ async function renderAdd(byWeight = false) {
         ${numberField({ id: "serving_size", label: "Serving Size (grams or mL)", autofocus: true })}
         ${numberField({ id: "calories_per_serving", label: "Calories per Serving" })}
         ${numberField({ id: "mass_consumed", label: "Consumed Amount (grams or mL)" })}
-        <div class="calculation" id="calculation" aria-live="polite">Calculated calories: —</div>`
+        <div class="calculation" id="calculation" aria-live="polite">Calculated calories: —</div>
+        <button class="button button-primary button-block weight-middle-submit" type="submit">Add Entry</button>`
         : numberField({ id: "calorie_amount", label: "Calories", autofocus: true })}
       <div class="form-group"><label for="accounted_date">Accounted Date</label>
         <input id="accounted_date" name="accounted_date" type="date" value="${accountedDate}" required>
@@ -218,8 +219,8 @@ async function handleEntrySubmit(event, byWeight) {
   }
 
   const settings = await getSettings();
-  const button = form.querySelector("button[type=submit]");
-  button.disabled = true;
+  const submitButtons = form.querySelectorAll("button[type=submit]");
+  submitButtons.forEach((button) => { button.disabled = true; });
   try {
     await addEntry({
       recorded_date: localTimestamp(),
@@ -234,7 +235,7 @@ async function handleEntrySubmit(event, byWeight) {
     location.hash = "#/";
     showToast(`Added ${formatNumber(calorieAmount)} calories.`);
   } catch (error) {
-    button.disabled = false;
+    submitButtons.forEach((button) => { button.disabled = false; });
     document.querySelector("#form-error").innerHTML = errorSummary(error.message);
   }
 }

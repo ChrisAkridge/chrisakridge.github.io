@@ -57,6 +57,7 @@ textarea { min-height: 85px; resize: vertical; }
 input:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: 3px solid #1d7767; outline-offset: 2px; }
 .field-error { min-height: 1em; color: var(--danger); font-size: .86rem; font-weight: 650; margin-top: 3px; }
 .calculation { padding: 10px; margin: -5px 0 17px; background: var(--seafoam-light); border-left: 4px solid var(--seafoam-dark); font-weight: 700; }
+.weight-middle-submit { display: none; }
 .alert { padding: 10px; margin-bottom: 14px; border: 1px solid; }
 .alert-danger { background: var(--danger-light); color: #72141c; border-color: #d88f96; }
 .alert-safe { background: var(--seafoam-light); border-color: var(--seafoam-dark); }
@@ -82,6 +83,7 @@ dialog h2 { font-size: 1.35rem; margin-bottom: 14px; }
   #entry-form { display: flex; flex-direction: column; }
   #entry-form .entry-submit { order: -2; margin: 0 0 10px; }
   #entry-form .validation-summary { order: -1; }
+  #entry-form .weight-middle-submit { display: inline-flex; margin: -7px 0 17px; }
 
   /* Safari gives native date/time inputs a wide intrinsic size unless it is
      explicitly constrained in the inline direction. */
