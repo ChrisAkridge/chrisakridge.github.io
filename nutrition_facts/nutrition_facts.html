@@ -25,257 +25,904 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 panel-shown">
-                <div class="bg-primary-subtle">
-                    <h2>Enter Nutrition Facts</h2>
-                    <table class="table">
-                        <!-- Daily Energy Intake and Serving Info -->
-                        <tr class="grid-block-0">
-                            <td><label for="dailyEnergyIntake">Daily Energy Intake (Calories):</label></td>
-                            <td><input type="number" id="dailyEnergyIntake" name="dailyEnergyIntake"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="servingSize">Serving Size:</label></td>
-                            <td><input type="number" id="servingSize" name="servingSize"></td>
-                            <td>
-                                <input type="radio" id="servingSizeGrams" name="servingSizeUnit" value="grams" checked>
-                                <label for="servingSizeGrams">grams</label>
-                                <input type="radio" id="servingSizeMilliliters" name="servingSizeUnit"
-                                    value="milliliters">
-                                <label for="servingSizeMilliliters">milliliters</label>
-                            </td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="unitsPerServing">Units Per Serving:</label></td>
-                            <td><input type="checkbox" id="foodIsDiscrete" name="foodIsDiscrete">Food is discrete?</input></td>
-                            <td><input type="number" id="unitsPerServing" name="unitsPerServing"></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="servingsPerContainer">Servings Per Container:</label></td>
-                            <td><input type="number" id="servingsPerContainer" name="servingsPerContainer"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><span>Container Size:</span></td>
-                            <td><span class="calc" id="calc-containerSize">0 grams</span></td>
-                            <td></td>
-                        </tr>
-                        <!-- Calories -->
-                        <tr class="grid-block-1">
-                            <td><label for="caloriesPerServing">Calories:</label></td>
-                            <td><input type="number" id="caloriesPerServing" name="caloriesPerServing"></td>
-                            <td></td>
-                        </tr>
-                        <!-- Fat -->
-                        <tr class="grid-block-0">
-                            <td><label for="totalFat">Total Fat (grams):</label></td>
-                            <td><input type="number" id="totalFat" name="totalFat"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="saturatedFat">Saturated Fat (grams):</label></td>
-                            <td><input type="number" id="saturatedFat" name="saturatedFat"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="polyUnsaturatedFat">Polyunsaturated Fat (grams):</label></td>
-                            <td><input type="number" id="polyUnsaturatedFat" name="polyUnsaturatedFat"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="transFat">Trans Fat (grams):</label></td>
-                            <td><input type="number" id="transFat" name="transFat"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><span>Monounsaturated Fat (grams):</span></td>
-                            <td><span class="calc" id="calc-monounsaturatedFat">0 grams</span></td>
-                            <td></td>
-                        </tr>
-                        <!-- Cholesterol and Sodium -->
-                        <tr class="grid-block-1">
-                            <td><label for="cholesterol">Cholesterol (mg):</label></td>
-                            <td><input type="number" id="cholesterol" name="cholesterol"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-1">
-                            <td><label for="sodium">Sodium (mg):</label></td>
-                            <td><input type="number" id="sodium" name="sodium"></td>
-                            <td></td>
-                        </tr>
-                        <!-- Carbohydrates -->
-                        <tr class="grid-block-0">
-                            <td><label for="totalCarbohydrate">Total Carbohydrate (grams):</label></td>
-                            <td><input type="number" id="totalCarbohydrate" name="totalCarbohydrate"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="dietaryFiber">Dietary Fiber (grams):</label></td>
-                            <td><input type="number" id="dietaryFiber" name="dietaryFiber"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="totalSugars">Total Sugars (grams):</label></td>
-                            <td><input type="number" id="totalSugars" name="totalSugars"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="addedSugars">Added Sugars (grams):</label></td>
-                            <td><input type="number" id="addedSugars" name="addedSugars"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><span>Natural Sugars (grams):</span></td>
-                            <td><span class="calc" id="calc-naturalSugars">0 grams</span></td>
-                            <td></td>
-                        </tr>
-                        <!-- Protein -->
-                        <tr class="grid-block-1">
-                            <td><label for="protein">Protein (grams):</label></td>
-                            <td><input type="number" id="protein" name="protein"></td>
-                            <td></td>
-                        </tr>
-                        <!-- Vitamins and Minerals -->
-                        <tr class="grid-block-0">
-                            <td><label for="biotin">Biotin (micrograms):</td>
-                            <td><input id="biotin" type="number" name="biotin"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="choline">Choline (milligrams):</td>
-                            <td><input id="choline" type="number" name="choline"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="folate">Folate/Folic Acid (micrograms DFE):</td>
-                            <td><input id="folate" type="number" name="folate"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="nianic">Niacin (milligrams):</td>
-                            <td><input id="nianic" type="number" name="nianic"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="pantotheticAcid">Pantothenic Acid (milligrams):</td>
-                            <td><input id="pantotheticAcid" type="number" name="pantotheticAcid"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="riboflavin">Riboflavin (milligrams):</td>
-                            <td><input id="riboflavin" type="number" name="riboflavin"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="thiamin">Thiamin (milligrams):</td>
-                            <td><input id="thiamin" type="number" name="thiamin"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="vitaminA">Vitamin A (micrograms):</td>
-                            <td><input id="vitaminA" type="number" name="vitaminA"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="vitaminB6">Vitamin B<sub>6</sub> (milligrams):</td>
-                            <td><input id="vitaminB6" type="number" name="vitaminB6"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="vitaminB12">Vitamin B<sub>12</sub> (micrograms):</td>
-                            <td><input id="vitaminB12" type="number" name="vitaminB12"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="vitaminC">Vitamin C (milligrams):</td>
-                            <td><input id="vitaminC" type="number" name="vitaminC"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="vitaminD">Vitamin D (micrograms):</td>
-                            <td><input id="vitaminD" type="number" name="vitaminD"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="vitaminE">Vitamin E (milligrams):</td>
-                            <td><input id="vitaminE" type="number" name="vitaminE"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="vitaminK">Vitamin K (micrograms):</td>
-                            <td><input id="vitaminK" type="number" name="vitaminK"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="calcium">Calcium (grams):</td>
-                            <td><input id="calcium" type="number" name="calcium"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="chloride">Chloride (grams):</td>
-                            <td><input id="chloride" type="number" name="chloride"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="chromium">Chromium (micrograms):</td>
-                            <td><input id="chromium" type="number" name="chromium"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="copper">Copper (micrograms):</td>
-                            <td><input id="copper" type="number" name="copper"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="iodine">Iodine (micrograms):</td>
-                            <td><input id="iodine" type="number" name="iodine"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="iron">Iron (milligrams):</td>
-                            <td><input id="iron" type="number" name="iron"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="magnesium">Magnesium (milligrams):</td>
-                            <td><input id="magnesium" type="number" name="magnesium"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="manganese">Manganese (milligrams):</td>
-                            <td><input id="manganese" type="number" name="manganese"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="molybdenum">Molybdenum (micrograms):</td>
-                            <td><input id="molybdenum" type="number" name="molybdenum"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="potassium">Potassium (grams):</td>
-                            <td><input id="potassium" type="number" name="potassium"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="selenium">Selenium (micrograms):</td>
-                            <td><input id="selenium" type="number" name="selenium"></td>
-                            <td></td>
-                        </tr>
-                        <tr class="grid-block-0">
-                            <td><label for="zinc">Zinc (milligrams):</td>
-                            <td><input id="zinc" type="number" name="zinc"></td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="col-12 panel-hidden">
-                <div class="bg-success-subtle">
-                    <h2>Servings and Units</h2>
-                </div>
-            </div>
+    <div class="col-12 panel-hidden">
+        <div class="bg-primary-subtle">
+            <h2 class="text-center">
+                <span class="badge bg-secondary">
+                    <strong>Nutrition Facts Input</strong>
+                </span>
+            </h2>
+            <table class="table table-sm table-bordered mb-0">
+                <tbody>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="dailyEnergyIntake">Daily Energy Intake (Cal)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="dailyEnergyIntake" name="dailyEnergyIntake" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="servingSize">Serving Size</label>
+                        </td>
+                        <td>
+                            <input type="number" id="servingSize" name="servingSize" />
+                        </td>
+                        <td>
+                            <div>
+                                <input id="servingSizeUnitGrams" type="radio" name="servingSizeUnit" value="Grams" />
+                                <label for="servingSizeUnitGrams">grams</label>
+                                <input id="servingSizeUnitMilliliters" type="radio" name="servingSizeUnit" value="Milliliters" />
+                                <label for="servingSizeUnitMilliliters">milliliters</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="unitsPerServing">Units Per Serving</label>
+                        </td>
+                        <td>
+                            <div>
+                                <input id="foodIsDiscrete" type="checkbox" name="foodIsDiscrete" />
+                                <label for="foodIsDiscrete">Food is discrete</label>
+                            </div>
+                        </td>
+                        <td>
+                            <input type="number" id="unitsPerServing" name="unitsPerServing" />
+                        </td>
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="containerNetWeight">Container Net Weight (g or mL)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="containerNetWeight" name="containerNetWeight" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <span>Servings Per Container ()</span>
+                        </td>
+                        <td>
+                            <span class="calc" id="calc-servingsPerContainer" />
+                        </td>
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="calories">Calories</label>
+                        </td>
+                        <td>
+                            <input type="number" id="calories" name="calories" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="totalFat">Total Fat (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="totalFat" name="totalFat" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="saturatedFat">Saturated Fat (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="saturatedFat" name="saturatedFat" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="polyunsaturatedFat">Polyunsaturated Fat (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="polyunsaturatedFat" name="polyunsaturatedFat" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="transFat">Trans Fat (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="transFat" name="transFat" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <span>Monounsaturated Fat (g)</span>
+                        </td>
+                        <td>
+                            <span class="calc" id="calc-monounsaturatedFat" />
+                        </td>
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="cholesterol">Cholesterol (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="cholesterol" name="cholesterol" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="sodium">Sodium (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="sodium" name="sodium" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="totalCarbohydrates">Total Carbohydrates (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="totalCarbohydrates" name="totalCarbohydrates" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="dietaryFibers">Dietary Fibers (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="dietaryFibers" name="dietaryFibers" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="totalSugars">Total Sugars (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="totalSugars" name="totalSugars" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <label for="addedSugars">Added Sugars (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="addedSugars" name="addedSugars" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-0">
+                        <td>
+                            <span>Natural Sugars (g)</span>
+                        </td>
+                        <td>
+                            <span class="calc" id="calc-naturalSugars" />
+                        </td>
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="biotin">Biotin (μg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="biotin" name="biotin" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="choline">Choline (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="choline" name="choline" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="folate">Folate/Folic Acid (μg DFE)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="folate" name="folate" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="niacin">Niacin (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="niacin" name="niacin" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="pantotheticAcid">Pantothetic Acid (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="pantotheticAcid" name="pantotheticAcid" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="riboflavin">Riboflavin (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="riboflavin" name="riboflavin" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="thiamin">Thiamin (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="thiamin" name="thiamin" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="vitaminA">Vitamin A (μg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="vitaminA" name="vitaminA" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="vitaminB6">Vitamin B<sub>6</sub> (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="vitaminB6" name="vitaminB6" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="vitaminB12">Vitamin B<sub>12</sub> (μg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="vitaminB12" name="vitaminB12" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="vitaminC">Vitamin C (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="vitaminC" name="vitaminC" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="vitaminD">Vitamin D (μg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="vitaminD" name="vitaminD" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="vitaminE">Vitamin E (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="vitaminE" name="vitaminE" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="vitaminK">Vitamin K (μg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="vitaminK" name="vitaminK" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="calcium">Calcium (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="calcium" name="calcium" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="chloride">Chloride (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="chloride" name="chloride" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="chromium">Chromium (μg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="chromium" name="chromium" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="copper">Copper (μg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="copper" name="copper" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="iodine">Iodine (μg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="iodine" name="iodine" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="iron">Iron (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="iron" name="iron" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="magnesium">Magnesium (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="magnesium" name="magnesium" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="manganese">Manganese (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="manganese" name="manganese" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="molybdenum">Molybdenum (μg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="molybdenum" name="molybdenum" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="potassium">Potassium (g)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="potassium" name="potassium" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="selenium">Selenium (μg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="selenium" name="selenium" />
+                        </td>
+                        <td />
+                    </tr>
+                    <tr class="grid-block-1">
+                        <td>
+                            <label for="zinc">Zinc (mg)</label>
+                        </td>
+                        <td>
+                            <input type="number" id="zinc" name="zinc" />
+                        </td>
+                        <td />
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </div>
+    <div class="col-12 panel-hidden">
+        <div class="bg-success-subtle">
+            <h2 class="text-center">
+                <span class="badge bg-secondary">
+                    <strong>Serving Size Info</strong>
+                </span>
+            </h2>
+            <table id="servingSizeInfo" class="nutrition-facts-table">
+                <thead>
+                    <tr>
+                        <th class="nutrition-facts-header"></th>
+                        <th class="nutrition-facts-header">Per Serving</th>
+                        <th class="nutrition-facts-header">Per Unit</th>
+                        <th class="nutrition-facts-header">Per Container</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Grams</td>
+                        <td id="servingSizeInfo_0_0" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_0" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_0" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Planck masses</td>
+                        <td id="servingSizeInfo_0_1" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_1" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_1" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Ounces (US food labellling)</td>
+                        <td id="servingSizeInfo_0_2" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_2" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_2" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Ounces</td>
+                        <td id="servingSizeInfo_0_3" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_3" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_3" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Pounds</td>
+                        <td id="servingSizeInfo_0_4" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_4" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_4" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Tons</td>
+                        <td id="servingSizeInfo_0_5" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_5" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_5" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Average US men</td>
+                        <td id="servingSizeInfo_0_6" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_6" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_6" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Average US women</td>
+                        <td id="servingSizeInfo_0_7" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_7" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_7" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">5 pounds</td>
+                        <td id="servingSizeInfo_0_8" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_8" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_8" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">20 pounds</td>
+                        <td id="servingSizeInfo_0_9" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_9" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_9" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">50 pounds</td>
+                        <td id="servingSizeInfo_0_10" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_10" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_10" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">100 pounds</td>
+                        <td id="servingSizeInfo_0_11" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_11" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_11" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Electron-volts of relativistic energy</td>
+                        <td id="servingSizeInfo_0_12" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_12" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_12" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Electrons</td>
+                        <td id="servingSizeInfo_0_13" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_13" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_13" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Protons</td>
+                        <td id="servingSizeInfo_0_14" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_14" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_14" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Neutron</td>
+                        <td id="servingSizeInfo_0_15" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_15" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_15" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Oganesson<sub>294</sub> atoms</td>
+                        <td id="servingSizeInfo_0_16" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_16" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_16" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Joules of relativistic energy</td>
+                        <td id="servingSizeInfo_0_17" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_17" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_17" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Lunar masses</td>
+                        <td id="servingSizeInfo_0_18" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_18" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_18" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Earth masses</td>
+                        <td id="servingSizeInfo_0_19" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_19" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_19" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Solar masses</td>
+                        <td id="servingSizeInfo_0_20" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_20" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_20" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Milky Way masses</td>
+                        <td id="servingSizeInfo_0_21" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_21" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_21" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Observable universe masses</td>
+                        <td id="servingSizeInfo_0_22" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_1_22" class="nutrition-facts-cell"></td>
+                        <td id="servingSizeInfo_2_22" class="nutrition-facts-cell"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-12 panel-hidden">
+        <div class="bg-info-subtle">
+            <h2 class="text-center">
+                <span class="badge bg-secondary">
+                    <strong>Calorie Info</strong>
+                </span>
+            </h2>
+            <table id="calorieInfo" class="nutrition-facts-table">
+                <thead>
+                    <tr>
+                        <th class="nutrition-facts-header"></th>
+                        <th class="nutrition-facts-header">Per Gram</th>
+                        <th class="nutrition-facts-header">Per Milliliter</th>
+                        <th class="nutrition-facts-header">Per Serving</th>
+                        <th class="nutrition-facts-header">Per Unit</th>
+                        <th class="nutrition-facts-header">Per Container</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Joules</td>
+                        <td id="calorieInfo_0_0" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_0" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_0" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_0" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_0" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Thermochemical calories</td>
+                        <td id="calorieInfo_0_1" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_1" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_1" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_1" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_1" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Calories</td>
+                        <td id="calorieInfo_0_2" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_2" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_2" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_2" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_2" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Electron-Volts</td>
+                        <td id="calorieInfo_0_3" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_3" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_3" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_3" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_3" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Foot-pounds</td>
+                        <td id="calorieInfo_0_4" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_4" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_4" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_4" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_4" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">British Thermal Units</td>
+                        <td id="calorieInfo_0_5" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_5" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_5" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_5" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_5" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Ergs</td>
+                        <td id="calorieInfo_0_6" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_6" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_6" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_6" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_6" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Foes</td>
+                        <td id="calorieInfo_0_7" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_7" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_7" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_7" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_7" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Planck Energies</td>
+                        <td id="calorieInfo_0_8" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_8" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_8" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_8" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_8" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">% Daily Value of Calories</td>
+                        <td id="calorieInfo_0_9" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_9" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_9" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_9" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_9" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration of Calories</td>
+                        <td id="calorieInfo_0_10" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_10" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_10" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_10" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_10" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration that 1 watt can be sustained</td>
+                        <td id="calorieInfo_0_11" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_11" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_11" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_11" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_11" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration that 1 ampere across 1.5 volts can be sustained</td>
+                        <td id="calorieInfo_0_12" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_12" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_12" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_12" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_12" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration that 1 ampere across 5 volts can be sustained</td>
+                        <td id="calorieInfo_0_13" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_13" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_13" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_13" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_13" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration that 1 ampere across 12 volts can be sustained</td>
+                        <td id="calorieInfo_0_14" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_14" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_14" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_14" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_14" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration that 1 ampere across 120 volts can be sustained</td>
+                        <td id="calorieInfo_0_15" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_15" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_15" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_15" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_15" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration that 1 ampere across 240 volts can be sustained</td>
+                        <td id="calorieInfo_0_16" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_16" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_16" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_16" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_16" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration that 1 ampere across 480 volts can be sustained</td>
+                        <td id="calorieInfo_0_17" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_17" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_17" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_17" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_17" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration that 1 ampere across 100 kilovolts can be sustained</td>
+                        <td id="calorieInfo_0_18" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_18" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_18" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_18" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_18" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration that 1 ampere across 800 kilovolts can be sustained</td>
+                        <td id="calorieInfo_0_19" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_19" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_19" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_19" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_19" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duration that 1 ampere across 800 kilovolts can be sustained</td>
+                        <td id="calorieInfo_0_20" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_20" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_20" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_20" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_20" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Mass of TNT</td>
+                        <td id="calorieInfo_0_21" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_21" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_21" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_21" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_21" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Heating effect on 1 gram of water</td>
+                        <td id="calorieInfo_0_22" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_22" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_22" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_22" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_22" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Heating effect on 1 kilogram of water</td>
+                        <td id="calorieInfo_0_23" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_23" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_23" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_23" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_23" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Heating effect on 1 megagram of water</td>
+                        <td id="calorieInfo_0_24" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_24" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_24" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_24" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_24" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Relativistic mass</td>
+                        <td id="calorieInfo_0_25" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_25" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_25" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_25" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_25" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Barrel of oil equivalent</td>
+                        <td id="calorieInfo_0_26" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_26" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_26" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_26" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_26" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">LED light bulb operation duration (10 W)</td>
+                        <td id="calorieInfo_0_27" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_27" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_27" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_27" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_27" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Incandescant light bulb operation duration (100 W)</td>
+                        <td id="calorieInfo_0_28" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_28" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_28" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_28" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_28" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Typical PC PSU operation duration (650 W)</td>
+                        <td id="calorieInfo_0_29" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_29" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_29" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_29" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_29" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Household operation duration (24 kW)</td>
+                        <td id="calorieInfo_0_30" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_30" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_30" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_30" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_30" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Clear channel AM station operation duration (50 kW)</td>
+                        <td id="calorieInfo_0_31" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_31" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_31" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_31" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_31" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Duga OTH radar operation duration (10 MW)</td>
+                        <td id="calorieInfo_0_32" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_32" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_32" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_32" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_32" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Global power output duration (19.6 TW)</td>
+                        <td id="calorieInfo_0_33" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_33" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_33" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_33" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_33" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Sun power output duration (38.28 YW)</td>
+                        <td id="calorieInfo_0_34" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_34" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_34" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_34" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_34" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">Sun power output duration (38.28 YW)</td>
+                        <td id="calorieInfo_0_35" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_35" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_35" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_35" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_35" class="nutrition-facts-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="nutrition-facts-row-label">mass-energies of the observable universe</td>
+                        <td id="calorieInfo_0_36" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_1_36" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_2_36" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_3_36" class="nutrition-facts-cell"></td>
+                        <td id="calorieInfo_4_36" class="nutrition-facts-cell"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
     </div>
 
     <script src="nutrition_facts.js"></script>

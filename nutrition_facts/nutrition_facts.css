@@ -25,10 +25,10 @@
     color: black;
 }
 
-.nav-button-active:hover {
-    background-color: lightblue;
-    cursor: default;
-}
+    .nav-button-active:hover {
+        background-color: lightblue;
+        cursor: default;
+    }
 
 .panel-hidden {
     display: none;
